@@ -1,0 +1,33 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12">
+      <h3>Server Page</h3>
+      <hr>
+      <p> The server id is <strong>{{server.id}}.</strong></p>
+      <p>The server name is <strong>{{server.name}}.</strong></p>
+      <p>The server current status is <strong>{{server.status}}.</strong></p>
+      <button class="btn btn-primary" (click)="onEdit()">Edit Server</button>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-xs-12">
+      <input type="text" [(ngModel)]="filteredStatus">
+   <br>
+   <button class="btn btn-primary" type="button" (click)="onAddServer()">Add Server</button>
+   <br><br>
+   <h1>App Status: {{appStatus|async}}</h1>
+      <ul class="list-group">
+        <li class="list-group-item"
+        *ngFor="let server1 of servers|filter:filteredStatus:'status'"
+        [ngClass]="getStatusClassess(server1)"
+        ><span class="badge">{{server1.status}}</span>
+      <strong>{{server1.name|shorten:15}} |
+        {{server1.instanceType| uppercase}} |
+        {{server1.started|date:'fullDate'|uppercase}}
+      </strong>
+      </li>
+      </ul>
+    </div>
+  </div>
+</div>

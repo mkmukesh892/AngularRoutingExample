@@ -1,0 +1,14 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-6">
+      <div class="list-group"><a routerLinkActive="active"
+        [routerLink]="['/users', user.id, user.name]"
+        class="list-group-item" *ngFor="let user of users ; let i = index" (click)="gotoUserPage(i)" style="cursor: pointer">{{user.name}}  - ({{i+1}})</a></div>
+    </div>
+  <hr>
+    <div class="col-xs-6">
+      <!--<app-user [id]="id1" [user]="user1"></app-user>-->
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

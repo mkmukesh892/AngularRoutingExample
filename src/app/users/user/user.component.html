@@ -1,0 +1,15 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12">
+      <h3>User Page</h3>
+      <hr>
+      <p>User with Id <strong>{{user.id}}</strong> loaded. </p>
+      <p>User name is <strong>{{user.name|uppercase}}.</strong></p>
+      <p>Current date is <strong> {{currentDate|date:'fullDate'|shorten:15}}</strong></p>
+      <p>Current time is {{currentDate|date:'mediumTime'|lowercase|shorten}}</p>
+      <button class="btn btn-primary" (click)="onActivate()">Activate!</button>
+      <hr>
+      <a [routerLink]="['/users', 10, 'Anna']">Load Anna (10)</a>
+    </div>
+  </div>
+</div>
